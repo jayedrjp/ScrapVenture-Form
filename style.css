@@ -1,0 +1,186 @@
+/* Custom styles that Tailwind utilities alone don't cover cleanly. */
+
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: "Hind Siliguri", sans-serif; }
+
+/* Card shadow (subtle, neutral) */
+.shadow-card { box-shadow: 0 4px 24px rgba(17, 24, 39, 0.06); }
+
+/* ===== Text inputs and select — optimised ===== */
+
+/* Field group wrapper for floating-label pattern */
+.field-group {
+  position: relative;
+}
+
+.field-group label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: transparent;
+  padding: 0 0.25rem;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+  z-index: 1;
+}
+
+/* Float label up when field is focused OR has a value */
+.field-group .field:focus ~ label,
+.field-group .field:not(:placeholder-shown) ~ label,
+.field-group .field.has-value ~ label {
+  top: 0;
+  transform: translateY(-50%) scale(0.85);
+  color: #269C26;
+  background: linear-gradient(to bottom, transparent 45%, #fff 45%);
+  padding: 0 0.35rem;
+}
+
+/* When field has error and is floated */
+.field-group .field[aria-invalid="true"] ~ label {
+  color: #c62828;
+}
+.field-group .field[aria-invalid="true"]:focus ~ label,
+.field-group .field[aria-invalid="true"]:not(:placeholder-shown) ~ label {
+  color: #c62828;
+}
+
+/* Core field */
+.field {
+  display: block;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+  background-color: #f9fafb;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  transition: border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background-color 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.field:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Hover */
+.field:hover {
+  border-color: #9ca3af;
+  background-color: #f3f4f6;
+}
+
+/* Focus */
+.field:focus {
+  outline: none;
+  border-color: #269C26;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(38, 156, 38, 0.15),
+              0 1px 3px rgba(38, 156, 38, 0.08);
+}
+
+/* Error */
+.field[aria-invalid="true"] {
+  border-color: #c62828;
+  background-color: #fef2f2;
+}
+
+.field[aria-invalid="true"]:hover {
+  border-color: #b71c1c;
+}
+
+.field[aria-invalid="true"]:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.12),
+              0 1px 3px rgba(198, 40, 40, 0.06);
+}
+
+/* Select specific — extra right padding for arrow */
+select.field {
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+/* Disabled / read-only states */
+.field:disabled,
+.field[readonly] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+}
+
+/* Validation message (icon + text, so it isn't colour-only) */
+.error-msg {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #c62828;
+}
+.error-msg:not([hidden]) { display: flex; align-items: center; gap: 0.4rem; }
+.error-msg::before {
+  content: "!";
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: #c62828;
+  border-radius: 9999px;
+}
+
+/* Upload area */
+.upload-area { transition: border-color 0.2s ease, background-color 0.2s ease; }
+.upload-area:hover { border-color: #269C26; background-color: rgba(38, 156, 38, 0.04); }
+#studentPhoto:focus-visible ~ .upload-area {
+  border-color: #269C26;
+  box-shadow: 0 0 0 4px rgba(38, 156, 38, 0.18);
+}
+.upload-area.has-error { border-color: #c62828; }
+
+/* Preview buttons */
+.btn-outline {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #269C26;
+  background: #fff;
+  border: 1.5px solid #269C26;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-outline:hover { background: #269C26; color: #fff; }
+.btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(38, 156, 38, 0.3); }
+
+/* Subtle transitions for preview and success states */
+.preview-area:not([hidden]),
+.success-state:not([hidden]) { animation: fade-in 0.3s ease; }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Make sure the [hidden] attribute always wins over Tailwind's display utilities */
+[hidden] { display: none !important; }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ক্লিন ক্যাম্পাস, গ্রিন ক্যাম্পাস | ক্যাম্পাস অ্যাম্বাসেডর নিবন্ধন</title>
+  <meta name="description" content="Scrap Venture-এর ক্লিন ক্যাম্পাস, গ্রিন ক্যাম্পাস প্রোগ্রামে ৫ম থেকে ১০ম শ্রেণির শিক্ষার্থীদের ক্যাম্পাস অ্যাম্বাসেডর নিবন্ধন ফরম।">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Hind Siliguri"', 'sans-serif'] },
+          colors: { brand: '#269C26' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white font-sans text-gray-800 antialiased">
+
+  <main class="min-h-screen px-4 py-8 sm:py-12">
+    <div class="mx-auto w-full max-w-xl">
+
+      <!-- Branding & program title -->
+      <header class="text-center">
+        <img src="assets/logo.png" alt="Scrap Venture লোগো"
+             class="mx-auto h-auto w-44 max-w-full sm:w-56">
+
+        <h1 class="mt-8 text-3xl font-bold leading-tight text-brand sm:text-4xl">
+          ক্লিন ক্যাম্পাস, গ্রিন ক্যাম্পাস
+        </h1>
+        <p class="mt-2 text-xl font-semibold text-brand sm:text-2xl">ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রাম</p>
+        <p class="mx-auto mt-4 max-w-md text-base leading-relaxed text-gray-600">
+          ৫ম থেকে ১০ম শ্রেণির শিক্ষার্থীরা নিজের বিদ্যালয়কে পরিচ্ছন্ন ও সবুজ রাখতে ক্যাম্পাস অ্যাম্বাসেডর হিসেবে নিবন্ধন করতে পারবে।
+        </p>
+      </header>
+
+      <!-- Card -->
+      <section class="mt-8 rounded-2xl border border-gray-200 border-t-4 border-t-brand bg-white p-5 shadow-card sm:p-8"
+               aria-labelledby="form-title">
+
+        <!-- Registration form -->
+        <div id="form-wrapper">
+          <h2 id="form-title" class="text-xl font-bold text-brand sm:text-2xl">ক্যাম্পাস অ্যাম্বাসেডর নিবন্ধন</h2>
+
+          <form id="registration-form" class="mt-6 space-y-6" novalidate>
+
+            <!-- Name -->
+            <div class="field-group">
+              <input type="text" id="studentName" name="studentName" autocomplete="name"
+                     placeholder=" "
+                     class="field" aria-describedby="studentName-error" required>
+              <label for="studentName" class="mb-1.5 block text-base font-semibold text-gray-800">শিক্ষার্থীর নাম</label>
+              <p id="studentName-error" class="error-msg" role="alert" hidden></p>
+            </div>
+
+            <!-- Student ID -->
+            <div class="field-group">
+              <input type="text" id="studentId" name="studentId" autocomplete="off"
+                     placeholder=" "
+                     class="field" aria-describedby="studentId-error" required>
+              <label for="studentId" class="mb-1.5 block text-base font-semibold text-gray-800">শিক্ষার্থী আইডি</label>
+              <p id="studentId-error" class="error-msg" role="alert" hidden></p>
+            </div>
+
+            <!-- Class -->
+            <div>
+              <label for="studentClass" class="mb-1.5 block text-base font-semibold text-gray-800">শ্রেণি</label>
+              <div class="relative">
+                <select id="studentClass" name="studentClass"
+                        class="field appearance-none pr-11" aria-describedby="studentClass-error" required>
+                  <option value="" selected>শ্রেণি নির্বাচন করুন</option>
+                  <option value="৫ম">৫ম</option>
+                  <option value="৬ষ্ঠ">৬ষ্ঠ</option>
+                  <option value="৭ম">৭ম</option>
+                  <option value="৮ম">৮ম</option>
+                  <option value="৯ম">৯ম</option>
+                  <option value="১০ম">১০ম</option>
+                </select>
+                <svg class="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <p id="studentClass-error" class="error-msg" role="alert" hidden></p>
+            </div>
+
+            <!-- School -->
+            <div class="field-group">
+              <input type="text" id="schoolName" name="schoolName" autocomplete="organization"
+                     placeholder=" "
+                     class="field" aria-describedby="schoolName-error" required>
+              <label for="schoolName" class="mb-1.5 block text-base font-semibold text-gray-800">বিদ্যালয়ের নাম</label>
+              <p id="schoolName-error" class="error-msg" role="alert" hidden></p>
+            </div>
+
+            <!-- Photo -->
+            <div>
+              <span id="photo-label" class="mb-1.5 block text-base font-semibold text-gray-800">শিক্ষার্থীর ছবি</span>
+
+              <input type="file" id="studentPhoto" name="studentPhoto"
+                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                     class="sr-only" aria-describedby="studentPhoto-error" aria-labelledby="photo-label" required>
+
+              <!-- Empty state -->
+              <label for="studentPhoto" id="upload-area"
+                     class="upload-area flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 px-4 py-8 text-center">
+                <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white ring-2 ring-brand">
+                  <svg class="h-6 w-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L7 9m5-5l5 5M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+                  </svg>
+                </span>
+                <span class="mt-3 text-base font-semibold text-brand">ছবি আপলোড করুন</span>
+                <span class="mt-1 text-sm text-gray-500">JPG, JPEG অথবা PNG ছবি নির্বাচন করুন</span>
+              </label>
+
+              <!-- Preview state -->
+              <div id="preview-area" class="preview-area rounded-xl border-2 border-brand p-3" hidden>
+                <div class="flex items-center justify-center rounded-lg bg-white">
+                  <img id="preview-image" src="" alt="নির্বাচিত শিক্ষার্থীর ছবির প্রিভিউ"
+                       class="max-h-72 w-auto max-w-full rounded-lg object-contain">
+                </div>
+                <p id="file-name" class="mt-3 truncate text-center text-sm text-gray-500"></p>
+                <div class="mt-3 flex flex-col gap-2 sm:flex-row">
+                  <label for="studentPhoto" class="btn-outline cursor-pointer text-center">ছবি পরিবর্তন করুন</label>
+                  <button type="button" id="remove-photo" class="btn-outline">ছবি সরান</button>
+                </div>
+              </div>
+
+              <p id="studentPhoto-error" class="error-msg" role="alert" hidden></p>
+            </div>
+
+            <button type="submit"
+                    class="w-full rounded-xl bg-brand px-6 py-3.5 text-lg font-semibold text-white shadow-sm transition duration-200 hover:bg-[#1f831f] focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 active:scale-[0.99]">
+              নিবন্ধন করুন
+            </button>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div id="success-message" class="success-state py-6 text-center" role="status" hidden>
+          <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand">
+            <svg class="h-9 w-9 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <h2 class="mt-5 text-2xl font-bold text-brand">নিবন্ধন সফল হয়েছে!</h2>
+          <p class="mx-auto mt-2 max-w-sm text-base leading-relaxed text-gray-600">
+            ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রামে নিবন্ধনের জন্য আপনাকে ধন্যবাদ।
+          </p>
+          <button type="button" id="register-again"
+                  class="mt-6 w-full rounded-xl border-2 border-brand bg-white px-6 py-3 text-base font-semibold text-brand transition duration-200 hover:bg-brand hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/40 sm:w-auto">
+            আবার নিবন্ধন করুন
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
